@@ -47,7 +47,9 @@ class Warrior(Character):
     def __init__(self, name):
         super().__init__(name, health = 120, attack = 15, character_class = "Warrior")
         self.ability = "Enraged Attack"
-        
+        self.add_to_inventory("Rusted Sword")
+        self.add_to_inventory("Health Potion")
+
     def use_ability(self):
         return self.attack + 10
 
@@ -55,6 +57,8 @@ class Wizard(Character):
     def __init__(self, name):
         super().__init__(name, health = 100, attack = 20, character_class = "Wizard")
         self.ability = "Fireball"
+        self.add_to_inventory("Iron Staff")
+        self.add_to_inventory("Health Potion")
 
     def use_ability(self):
         return self.attack +15
@@ -63,6 +67,8 @@ class Cleric(Character):
     def __init__(self, name):
         super().__init__(name, health = 100, attack = 10, character_class = "Cleric")
         self.ability = "Heal"
+        self.add_to_inventory("Staff of Moderate Healing")
+        self.add_to_inventory("Health Potion")
 
     def use_ability(self):
         self.health += 20
@@ -74,6 +80,7 @@ class Skeleton(Character):
 
     def drop_loot(self, player):
         loot = random.choice(["Gold", "Health Potion", "Wooden Bow"]) 
+        player.add_to_inventory(loot)
 
 class Orc(Character):
     def __init__(self):
@@ -81,10 +88,12 @@ class Orc(Character):
 
     def drop_loot(self, player):
         loot = random.choice(["Gold", "Health Potion", "Iron Sword"])
+        player.add_to_inventory(loot)
 
 class Dragon(Character):
     def __init__(self):
         super().__init__("Dragon", health = 150, attack = 25, character_class = "Boss")
 
     def drop_loot(self, player):
-        loot = random.choice(["Gold", "Dragon's Blood Potion", "Dragon's Scale Armor"])    
+        loot = random.choice(["Gold", "Dragon's Blood Potion", "Dragon's Scale Armor"])
+        player.add_to_inventory(loot)    
