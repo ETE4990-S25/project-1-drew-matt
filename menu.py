@@ -1,4 +1,3 @@
-from IPython.display import clear_output # Delete from main game
 import os
 def clear_screen():
     # Clear the terminal (This was copied from ChatGPT)
@@ -15,6 +14,8 @@ def display_main_menu():
 # Begin the game
 def start_game():
     print("Starting the Game . . .")
+
+    
 
     print("Game Over! Press Enter to Return to Main Menu.")
     input("Press Enter to Continue")

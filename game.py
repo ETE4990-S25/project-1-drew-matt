@@ -1,5 +1,31 @@
 import os
 import menu 
+import Save_System
+from Char_Classes import *
+from Dungeon_Classes import Dungeon, Room
+import Save_System
+
+def new_game():
+    print("Welcome to our Python Dungeon Crawler Game!")
+    name = input("Enter a name for your character: ")
+    print("Choose Your Class: ")
+    print("(1) Warrior")
+    print("(1) Mage")
+    print("(1) Cleric")
+    choice = input("Enter Your Class Choice (Pick 1 - 3):")
+
+    if choice == '1':
+        player = Warrior(name)
+    elif choice == '2':
+        player = Mage(name)
+    elif choice == '3':
+        player = Cleric(name)
+    else:
+        print("Invalid Option. Selecting Default option (Warrior)")
+        player = Warrior(name)
+    dungeon = Dungeon()
+    dungeon.run_dungeon(player)
+    Save_System.save_game(player)
 
 def main():
     playing = True
