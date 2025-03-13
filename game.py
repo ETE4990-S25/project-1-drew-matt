@@ -10,8 +10,8 @@ def new_game():
     
     print("Choose Your Class: ")
     print("(1) Warrior")
-    print("(1) Mage")
-    print("(1) Cleric")
+    print("(2) Mage")
+    print("(3) Cleric")
     choice = input("Enter Your Class Choice (Pick 1 - 3):")
 
     if choice == '1':
@@ -70,7 +70,7 @@ def main():
                     input("Press Enter to Continue...")
 
         # Quit the Game
-        elif choice == '3':
+        elif choice == '4':
 
             print("Thank You For Playing! Goodbye!")
             playing = False
