@@ -15,10 +15,6 @@ def display_main_menu():
 # Begin the game
 def start_game():
     print("Starting the Game . . .")
-
-
-
-    print("Game Over! Press Enter to Return to Main Menu.")
     input("Press Enter to Continue")
 
 # Enter Options Menu
