@@ -9,6 +9,27 @@ class Character:
         self.character_class = character_class
         self.inventory = []
 
+    def take_damage(self, damage):
+        self.health -= damage
+        if self.health < 0:
+            self.health = 0
+    
+    def is_alive(self):
+        return self.health > 0
+    
+    def add_to_inventory(self, item):
+        self.inventory.append(item)
+        print(f"{item} has been added to your inventory")
+
+    def use_potion(self):
+        for item in self.inventory:
+            if item == "Health Potion":
+                self.health += 30
+                self.inventory.remove(item)
+                print("Your Health Has Been Restored By 30")
+                return
+            print("You Have No More Health Potions :((")    
+
 # Playable Subclasses
 class Warrior(Character):
     def __init__(self, name):
