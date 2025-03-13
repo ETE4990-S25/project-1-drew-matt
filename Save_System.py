@@ -16,7 +16,7 @@ def load_game(player):
     
     if save_data["character_class"] == "Warrior":
         player = Warrior(save_data["name"])
-    elif save_data["character_class"] == "Wizard":
+    elif save_data["character_class"] == "Mage":
         player = Mage(save_data["name"])
     elif save_data["character_class"] == "Cleric":
         player = Cleric(save_data["name"])
