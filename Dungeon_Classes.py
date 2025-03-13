@@ -66,8 +66,34 @@ class Room:
 
     
     def enter_room(self, player):
-        if self.room_type == "Treasure":
+        if self.room_type == "treasure":
             print("Congratulations! You Have Found a "
             "Treasure Room! You May Obtain a Random Item")
 
             player.add_to_inventory(random.choice(["Gold", "Health Potion", "Magic Cloak"]))
+        elif self.room_type == "mob":
+            self.fight_mob(player)
+        elif self.room_type == "boss":
+            self.fight_boss(player)
+
+class Dungeon:
+    def __init__(self, floors = random.randint(5, 10)):
+        self.floors = floors
+    
+    def generate_floor(self, floor_number):
+        if floor_number == self.floors:
+            return Room("boss")
+        else:
+            return Room(random.choice(["treasure", "mob"]))
+        
+    def run_dungeon(self, player):
+        for floor in range(1, self.floors + 1):
+            print(f"\n--- Floor {floor} ---")
+            room = self.generate_floor(floor)
+            room.enter_room(player)
+            if not player.is_alive():
+                break
+            if floor < self.floors:
+                input("Press Enter to Enter the Next Room")
+                
+        
