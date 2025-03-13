@@ -21,12 +21,12 @@ class Character:
 class Warrior(Character):
     def __init__(self, name, health=100):
         super().__init__(name=name, health=health)
-        self.weapon = basic_sword
+        self.weapon = "basic_sword"
 
 class Mage(Character):
     def __init__(self, name, health=75):
         super().__init__(name=name, health=health)
-        self.weapon = basic_staff
+        self.weapon = "basic_staff"
 
 
 # In[ ]:
