@@ -7,15 +7,16 @@ def clear_screen():
 # Display the Main Menu
 def display_main_menu():
     print("Welcome to the Game!")
-    print("(1) Start the game")
-    print("(2) Options")
-    print("(3) Quit Game")
+    print("(1) Start Game")
+    print("(2) Load Game")
+    print("(3) Options")
+    print("(4) Quit Game")
 
 # Begin the game
 def start_game():
     print("Starting the Game . . .")
 
-    
+
 
     print("Game Over! Press Enter to Return to Main Menu.")
     input("Press Enter to Continue")

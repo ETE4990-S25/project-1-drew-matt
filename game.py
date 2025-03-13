@@ -3,11 +3,11 @@ import menu
 import Save_System
 from Char_Classes import *
 from Dungeon_Classes import Dungeon, Room
-import Save_System
 
 def new_game():
     print("Welcome to our Python Dungeon Crawler Game!")
     name = input("Enter a name for your character: ")
+    
     print("Choose Your Class: ")
     print("(1) Warrior")
     print("(1) Mage")
@@ -23,8 +23,11 @@ def new_game():
     else:
         print("Invalid Option. Selecting Default option (Warrior)")
         player = Warrior(name)
+    
     dungeon = Dungeon()
+    
     dungeon.run_dungeon(player)
+    
     Save_System.save_game(player)
 
 def main():
@@ -32,16 +35,23 @@ def main():
     while playing:
         os.system('cls')
         menu.display_main_menu()
-        choice = input("Please Select One (Enter a number 1 - 3): ")
+        choice = input("Please Select One (Enter a number 1 - 4): ")
         os.system('cls')
 
         # Play the Game
         if choice == '1':
             menu.start_game()
+            new_game()
             os.system('cls')
-            
-        # Open the Options Menu
+        # Load Game from Save File
         elif choice == '2':
+            player = Save_System.load_game()
+            if player:
+                dungeon = Dungeon()
+                dungeon.run_dungeon(player)
+
+        # Open the Options Menu
+        elif choice == '3':
             options_open = True
             
             while options_open:
