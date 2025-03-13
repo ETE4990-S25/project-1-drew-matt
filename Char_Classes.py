@@ -28,7 +28,19 @@ class Character:
                 self.inventory.remove(item)
                 print("Your Health Has Been Restored By 30")
                 return
-            print("You Have No More Health Potions :((")    
+            print("You Have No More Health Potions :((")
+
+    def to_dict(self):
+        return {"name": self.name, "health": self.health, "attack": self.attack,
+                "character_class": self.character_class, "inventory": self.inventory}
+    
+    @classmethod
+    def from_dict(cls, data):
+        character = cls(data["name"], data["health"], data["attack"], data["character_class"])
+        character.inventory = data["Inventory"]
+        return character
+
+     
 
 # Playable Subclasses
 class Warrior(Character):
