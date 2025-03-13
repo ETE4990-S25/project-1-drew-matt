@@ -1,4 +1,3 @@
-from IPython.display import clear_output # Delete from main game
 import os
 import menu 
 
