@@ -11,13 +11,59 @@ class Room:
         while mob.is_alive() and player.is_alive():
             print(player)
             print(mob)
-
+            
+            # Handle Player Actions
             action = input("Do You Want to (1) attack, (2) use an ability or (3) use a health potion? ")
             if action == '1':
                 mob.take_damage(player.attack)
             elif action == '2':
-                if player.character_type == 'Warrior':
+                if player.character_class == 'Warrior':
                     mob.take_damage(player.use_ability())
+                elif player.character_class == 'Mage':
+                    mob.take_damage(player.use_ability())
+                elif player.character_class == 'Cleric':
+                    player.use_ability()
+            elif action == '3':
+                player.use_potion()
+
+            if mob.is_alive():
+                player.take_damage(mob.attack)
+        
+        # Handle Victory or Death of the Player
+        if player.is_alive():
+            print("You Have Defeated the {mob.name}")
+            mob.drop_loot(player)
+        else:
+            print("The {mob.name} has impaled you  against the wall . . .")
+    
+    def fight_boss(self, player):
+        boss = Dragon()
+        print("You have reached the final level, a Dragon lumbers down from a mountain of gold")
+        while boss.is_alive() and player.is_alive():
+            print(player)
+            print(boss)
+            action = input("Do You Want to (1) attack, (2) use an ability or (3) use a health potion? ")
+
+            if action == '1':
+                boss.take_damage(player.attack)
+            elif action == '2':
+                if player.character_class == 'Warrior':
+                    boss.take_damage(player.use_ability())
+                elif player.character_class == 'Mage':
+                    boss.take_damage(player.use_ability())
+                elif player.character_class == 'Cleric':
+                    player.use_ability()
+            elif action == '3':
+                player.use_potion()
+
+            if boss.is_alive():
+                player.take_damage(boss.attack)
+        if player.is_alive():
+            print("Congratulations on Killing the Dragon and Beating the Game!")
+            boss.drop_loot(player)
+        else:
+            print("The Dragon has seared off your face . . .")
+
     
     def enter_room(self, player):
         if self.room_type == "Treasure":
