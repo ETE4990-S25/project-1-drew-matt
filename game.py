@@ -2,7 +2,7 @@ import os
 import menu 
 import Save_System
 from Char_Classes import *
-from Dungeon_Classes import Dungeon, Room
+from Dungeon_Classes import Dungeon
 
 def new_game():
     print("Welcome to our Python Dungeon Crawler Game!")
