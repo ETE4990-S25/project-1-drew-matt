@@ -1,6 +1,7 @@
 import os
 import menu 
-
+import Weapons_Classes
+import Character_Classes
 def main():
     playing = True
     while playing:
