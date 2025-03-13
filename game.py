@@ -5,15 +5,15 @@ import menu
 def main():
     playing = True
     while playing:
-
+        os.system('cls')
         menu.display_main_menu()
         choice = input("Please Select One (Enter a number 1 - 3): ")
-        clear_output(wait=True)
+        os.system('cls')
 
         # Play the Game
         if choice == '1':
             menu.start_game()
-            clear_output(wait=True)
+            os.system('cls')
             
         # Open the Options Menu
         elif choice == '2':
@@ -21,12 +21,12 @@ def main():
             
             while options_open:
                 menu.display_options_menu()
-                option_choice = input("Select an Option (1 or 2)")
-                clear_output(wait=True)
+                option_choice = input("Select an Option (1 or 2): ")
+                os.system('cls')
                 
                 if option_choice == '1':
                     menu.display_option_difficulty()
-                    clear_output(wait=True)
+                    os.system('cls')
                 elif option_choice == '2':
                     print("Returning to Main Menu")
                     options_open = False

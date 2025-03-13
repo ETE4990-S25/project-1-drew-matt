@@ -30,4 +30,4 @@ def display_option_difficulty():
     print("(1) Easy Mode")
     print("(2) Intermediate Mode")
     print("(3) Hardcore Mode")
-    input("Select a Difficulty Option (Enter a Number 1-3)")
+    input("Select a Difficulty Option (Enter a Number 1-3): ")
