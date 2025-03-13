@@ -53,7 +53,7 @@ class Warrior(Character):
     def use_ability(self):
         return self.attack + 10
 
-class Wizard(Character):
+class Mage(Character):
     def __init__(self, name):
         super().__init__(name, health = 100, attack = 20, character_class = "Wizard")
         self.ability = "Fireball"
