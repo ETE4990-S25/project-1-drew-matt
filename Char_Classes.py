@@ -37,10 +37,11 @@ class Character:
     @classmethod
     def from_dict(cls, data):
         character = cls(data["name"], data["health"], data["attack"], data["character_class"])
-        character.inventory = data["Inventory"]
+        character.inventory = data["inventory"]
         return character
 
-     
+    def __str__(self):
+        return f"{self.name}: {self.character_class}, {self.health} HP, {self.attack} Damage, Inventory: {self.inventory}"
 
 # Playable Subclasses
 class Warrior(Character):
