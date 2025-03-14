@@ -35,8 +35,10 @@ class Character:
                 self.health = min(self.health + 30, self.max_health())
                 self.inventory.remove(item)
                 print("Your Health Has Been Restored By 30")
+                print("-"*100)
                 return
-            print("You Have No More Health Potions :((")
+        print("You Have No More Health Potions :((")
+        print("-"*100)
 
     def to_dict(self):
         return {"name": self.name, "health": self.health, "attack": self.attack,
