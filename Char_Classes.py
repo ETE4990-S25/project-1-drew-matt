@@ -41,7 +41,10 @@ class Character:
         return character
 
     def __str__(self):
-        return f"{self.name}: {self.character_class}, {self.health} HP, {self.attack} Damage, Inventory: {self.inventory}"
+        if self.character_class in ["Warrior", "Mage", "Cleric"]:
+            return f"{self.name}: {self.character_class}, {self.health} HP, {self.attack} Damage, Inventory: {self.inventory}"
+        else:
+            return f"{self.name}: {self.character_class}, {self.health} HP, {self.attack} Damage"
 
 # Playable Subclasses
 class Warrior(Character):
