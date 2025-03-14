@@ -35,7 +35,8 @@ class Room:
             mob.drop_loot(player)
         else:
             print(f"The {mob.name} has impaled you  against the wall . . .")
-    
+            input("Press Enter to Return to the Main Menu")
+            
     def fight_boss(self, player):
         boss = Dragon()
         print("You have reached the final level, a Dragon lumbers down from a mountain of gold")
