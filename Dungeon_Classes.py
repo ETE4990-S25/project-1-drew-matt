@@ -64,7 +64,8 @@ class Room:
         else:
             print("The Dragon has seared off your face . . .")
 
-    
+        input("Press Enter to Return to the Main Menu")
+
     def enter_room(self, player):
         if self.room_type == "treasure":
             print("Congratulations! You Have Found a "
