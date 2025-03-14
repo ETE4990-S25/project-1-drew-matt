@@ -21,10 +21,18 @@ class Character:
         self.inventory.append(item)
         print(f"{item} has been added to your inventory")
 
+    def max_health(self):
+        if self.character_class == "Warrior":
+            return 120
+        elif self.character_class == "Mage": 
+            return 100
+        elif self.character_class == "Cleric":
+            return 100
+
     def use_potion(self):
         for item in self.inventory:
             if item == "Health Potion":
-                self.health += 30
+                self.health = min(self.health + 30, self.max_health())
                 self.inventory.remove(item)
                 print("Your Health Has Been Restored By 30")
                 return
@@ -75,7 +83,7 @@ class Cleric(Character):
         self.add_to_inventory("Health Potion")
 
     def use_ability(self):
-        self.health += 20
+        self.health = min(self.health + 20, self.max_health())
 
 # Mob Subclasses
 class Skeleton(Character):
