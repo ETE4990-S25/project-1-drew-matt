@@ -6,14 +6,15 @@ class Room:
 
     def fight_mob(self, player):
         mob = random.choice([Skeleton(), Orc()])
-        print(f"A {mob.name} has stepped out from the shadows")
+        print(f"A {mob.name} has stepped out from the shadows",'\n')
         
         while mob.is_alive() and player.is_alive():
             print(player)
-            print(mob)
+            print(mob,'\n')
             
             # Handle Player Actions
-            action = input("Do You Want to (1) attack, (2) use an ability or (3) use a health potion? ")
+            action = input("Do You Want to (1) attack, (2) use an ability or (3) use a health potion?")
+            print("-"*100)
             if action == '1':
                 mob.take_damage(player.attack)
             elif action == '2':
@@ -39,12 +40,13 @@ class Room:
             
     def fight_boss(self, player):
         boss = Dragon()
-        print("You have reached the final level, a Dragon lumbers down from a mountain of gold")
+        print("You have reached the final level, a Dragon lumbers down from a mountain of gold",'\n')
         while boss.is_alive() and player.is_alive():
             print(player)
-            print(boss)
-            action = input("Do You Want to (1) attack, (2) use an ability or (3) use a health potion? ")
-
+            print(boss,'\n')
+            
+            action = input("Do You Want to (1) attack, (2) use an ability or (3) use a health potion?")
+            print("-"*100)
             if action == '1':
                 boss.take_damage(player.attack)
             elif action == '2':
