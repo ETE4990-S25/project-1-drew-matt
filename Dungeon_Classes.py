@@ -31,10 +31,10 @@ class Room:
         
         # Handle Victory or Death of the Player
         if player.is_alive():
-            print("You Have Defeated the {mob.name}")
+            print(f"You Have Defeated the {mob.name}")
             mob.drop_loot(player)
         else:
-            print("The {mob.name} has impaled you  against the wall . . .")
+            print(f"The {mob.name} has impaled you  against the wall . . .")
     
     def fight_boss(self, player):
         boss = Dragon()
