@@ -8,7 +8,7 @@ def save_game(player):
         json.dump(save_data, file)
     print("Game Saved")
 
-def load_game(player):
+def load_game():
     if not os.path.exists("save_file.json"):
         print("No Save Game File Found")
     with open("save_file.json", "r") as file:
