@@ -1,7 +1,7 @@
 import os
 def clear_screen():
     # Clear the terminal (This was copied from ChatGPT)
-    os.system('cls' if os.name == 'nt' else 'clear')
+    os.system('cls')
     
 
 # Display the Main Menu

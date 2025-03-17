@@ -12,7 +12,7 @@ def new_game():
     print("(1) Warrior")
     print("(2) Mage")
     print("(3) Cleric")
-    choice = input("Enter Your Class Choice (Pick 1 - 3):")
+    choice = input("Enter Your Class Choice (Pick 1 - 3): ")
 
     if choice == '1':
         player = Warrior(name)

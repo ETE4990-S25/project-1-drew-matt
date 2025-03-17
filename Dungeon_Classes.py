@@ -1,4 +1,5 @@
 import random
+import os
 from Char_Classes import Character, Warrior, Mage, Cleric, Skeleton, Orc, Dragon
 class Room:
     def __init__(self, room_type):
@@ -29,7 +30,9 @@ class Room:
 
             if mob.is_alive():
                 player.take_damage(mob.attack)
-        
+
+            os.system('cls')
+
         # Handle Victory or Death of the Player
         if player.is_alive():
             print(f"You Have Defeated the {mob.name}")
@@ -37,7 +40,8 @@ class Room:
         else:
             print(f"The {mob.name} has impaled you  against the wall . . .")
             input("Press Enter to Return to the Main Menu")
-            
+            os.system('cls')
+
     def fight_boss(self, player):
         boss = Dragon()
         print("You have reached the final level, a Dragon lumbers down from a mountain of gold",'\n')
@@ -68,6 +72,7 @@ class Room:
             print("The Dragon has seared off your face . . .")
 
         input("Press Enter to Return to the Main Menu")
+        os.system('cls')
 
     def enter_room(self, player):
         if self.room_type == "treasure":
@@ -99,5 +104,6 @@ class Dungeon:
                 break
             if floor < self.floors:
                 input("Press Enter to Enter the Next Room")
+                os.system('cls')
                 
         
