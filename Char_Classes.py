@@ -1,6 +1,6 @@
 import random
 
-# Base Character Class
+# Player Class
 class Player:
     def __init__(self, name, health, attack, character_type, max_health):
         self.name = name
@@ -103,27 +103,18 @@ class Cleric(Player):
     def use_ability(self):
         self.health = min(self.health + 20, self.max_health())
 
-# Mob Subclasses
+# Enemy Subclasses
 class Skeleton(Enemy):
     def __init__(self):
         super().__init__("Skeleton", health = 30, attack = 15, character_type = "Mob")
-
-    def drop_loot(self, player):
-        loot = random.choice(["Gold", "Health Potion", "Wooden Bow"]) 
-        player.add_to_inventory(loot)
+        self.loot = ["Gold", "Health Potion", "Wooden Bow"]
 
 class Orc(Enemy):
     def __init__(self):
         super().__init__("Orc", health = 50, attack = 10, character_type = "Mob")
-
-    def drop_loot(self, player):
-        loot = random.choice(["Gold", "Health Potion", "Iron Sword"])
-        player.add_to_inventory(loot)
+        self.loot = ["Gold", "Health Potion", "Iron Sword"]
 
 class Dragon(Enemy):
     def __init__(self):
         super().__init__("Dragon", health = 150, attack = 25, character_type = "Boss")
-
-    def drop_loot(self, player):
-        loot = random.choice(["Gold", "Dragon's Blood Potion", "Dragon's Scale Armor"])
-        player.add_to_inventory(loot)    
+        self.loot = ["Gold", "Dragon's Blood Potion", "Dragon's Scale Armor"]
