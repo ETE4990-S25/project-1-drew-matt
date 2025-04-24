@@ -1,7 +1,7 @@
 import os
 import menu 
 import Save_System
-from Char_Classes import *
+from Char_Classes import Warrior, Mage, Cleric
 from Dungeon_Classes import Dungeon
 
 def new_game():

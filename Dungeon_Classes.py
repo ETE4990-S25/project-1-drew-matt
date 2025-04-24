@@ -1,6 +1,6 @@
 import random
 import os
-from Char_Classes import Character, Warrior, Mage, Cleric, Skeleton, Orc, Dragon
+from Char_Classes import Skeleton, Orc, Dragon
 class Room:
     def __init__(self, room_type):
         self.room_type = room_type

@@ -1,4 +1,4 @@
-from Char_Classes import Character, Warrior, Mage, Cleric
+from Char_Classes import Warrior, Mage, Cleric
 import json
 import os
 
