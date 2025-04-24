@@ -2,12 +2,13 @@ import random
 
 # Base Character Class
 class Character:
-    def __init__(self, name, health, attack, character_type):
+    def __init__(self, name, health, attack, character_type, max_health):
         self.name = name
         self.health = health
         self.attack = attack
         self.character_type = character_type
         self.inventory = []
+        self.max_health = max_health
 
     def take_damage(self, damage):
         self.health -= damage
@@ -20,14 +21,6 @@ class Character:
     def add_to_inventory(self, item):
         self.inventory.append(item)
         print(f"{item} has been added to your inventory")
-
-    def max_health(self):
-        if self.character_type == "Warrior":
-            return 120
-        elif self.character_type == "Mage": 
-            return 100
-        elif self.character_type == "Cleric":
-            return 100
 
     def use_potion(self):
         for item in self.inventory:
@@ -59,7 +52,7 @@ class Character:
 # Playable Subclasses
 class Warrior(Character):
     def __init__(self, name):
-        super().__init__(name, health = 120, attack = 15, character_type = "Warrior")
+        super().__init__(name, health = 120, attack = 15, character_type = "Warrior", max_health = 120)
         self.ability = "Enraged Attack"
         self.add_to_inventory("Rusted Sword")
         self.add_to_inventory("Health Potion")
@@ -69,7 +62,7 @@ class Warrior(Character):
 
 class Mage(Character):
     def __init__(self, name):
-        super().__init__(name, health = 100, attack = 20, character_type = "Wizard")
+        super().__init__(name, health = 100, attack = 20, character_type = "Wizard", max_health = 100)
         self.ability = "Fireball"
         self.add_to_inventory("Iron Staff")
         self.add_to_inventory("Health Potion")
@@ -79,7 +72,7 @@ class Mage(Character):
 
 class Cleric(Character):
     def __init__(self, name):
-        super().__init__(name, health = 100, attack = 10, character_type = "Cleric")
+        super().__init__(name, health = 100, attack = 10, character_type = "Cleric", max_health = 100)
         self.ability = "Heal"
         self.add_to_inventory("Staff of Moderate Healing")
         self.add_to_inventory("Health Potion")
