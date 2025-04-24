@@ -1,7 +1,7 @@
 import random
 
 # Base Character Class
-class Character:
+class Player:
     def __init__(self, name, health, attack, character_type, max_health):
         self.name = name
         self.health = health
@@ -25,7 +25,7 @@ class Character:
     def use_potion(self):
         for item in self.inventory:
             if item == "Health Potion":
-                self.health = min(self.health + 30, self.max_health())
+                self.health = min(self.health + 30, self.max_health)
                 self.inventory.remove(item)
                 print("Your Health Has Been Restored By 30")
                 print("-"*100)
@@ -50,7 +50,7 @@ class Character:
             return f"{self.name}: {self.character_type}, {self.health} HP, {self.attack} Damage"
 
 # Playable Subclasses
-class Warrior(Character):
+class Warrior(Player):
     def __init__(self, name):
         super().__init__(name, health = 120, attack = 15, character_type = "Warrior", max_health = 120)
         self.ability = "Enraged Attack"
@@ -60,7 +60,7 @@ class Warrior(Character):
     def use_ability(self):
         return self.attack + 10
 
-class Mage(Character):
+class Mage(Player):
     def __init__(self, name):
         super().__init__(name, health = 100, attack = 20, character_type = "Mage", max_health = 100)
         self.ability = "Fireball"
@@ -70,7 +70,7 @@ class Mage(Character):
     def use_ability(self):
         return self.attack +15
 
-class Cleric(Character):
+class Cleric(Player):
     def __init__(self, name):
         super().__init__(name, health = 100, attack = 10, character_type = "Cleric", max_health = 100)
         self.ability = "Heal"
