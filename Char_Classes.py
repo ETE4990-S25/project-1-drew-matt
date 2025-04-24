@@ -49,6 +49,29 @@ class Player:
         else:
             return f"{self.name}: {self.character_type}, {self.health} HP, {self.attack} Damage"
 
+# Enemy Class
+class Enemy:
+    def __init__(self, name, health, attack, character_type):
+        self.name = name
+        self.health = health
+        self.attack = attack
+        self.character_type = character_type
+
+    def take_damage(self, damage):
+        self.health -= damage
+        if self.health < 0:
+            self.health = 0
+    
+    def is_alive(self):
+        return self.health > 0
+    
+    def __str__(self):
+        return f"{self.name}: {self.character_type}, {self.health} HP, {self.attack} Damage"
+             
+    def drop_loot(self, player):
+        loot = random.choice(self.loot)
+        player.add_to_inventory(loot)
+        
 # Playable Subclasses
 class Warrior(Player):
     def __init__(self, name):
@@ -81,7 +104,7 @@ class Cleric(Player):
         self.health = min(self.health + 20, self.max_health())
 
 # Mob Subclasses
-class Skeleton(Character):
+class Skeleton(Enemy):
     def __init__(self):
         super().__init__("Skeleton", health = 30, attack = 15, character_type = "Mob")
 
@@ -89,7 +112,7 @@ class Skeleton(Character):
         loot = random.choice(["Gold", "Health Potion", "Wooden Bow"]) 
         player.add_to_inventory(loot)
 
-class Orc(Character):
+class Orc(Enemy):
     def __init__(self):
         super().__init__("Orc", health = 50, attack = 10, character_type = "Mob")
 
@@ -97,7 +120,7 @@ class Orc(Character):
         loot = random.choice(["Gold", "Health Potion", "Iron Sword"])
         player.add_to_inventory(loot)
 
-class Dragon(Character):
+class Dragon(Enemy):
     def __init__(self):
         super().__init__("Dragon", health = 150, attack = 25, character_type = "Boss")
 
