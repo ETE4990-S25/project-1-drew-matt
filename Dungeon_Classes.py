@@ -19,11 +19,11 @@ class Room:
             if action == '1':
                 mob.take_damage(player.attack)
             elif action == '2':
-                if player.character_class == 'Warrior':
+                if player.character_type == 'Warrior':
                     mob.take_damage(player.use_ability())
-                elif player.character_class == 'Mage':
+                elif player.character_type == 'Mage':
                     mob.take_damage(player.use_ability())
-                elif player.character_class == 'Cleric':
+                elif player.character_type == 'Cleric':
                     player.use_ability()
             elif action == '3':
                 player.use_potion()
@@ -54,11 +54,11 @@ class Room:
             if action == '1':
                 boss.take_damage(player.attack)
             elif action == '2':
-                if player.character_class == 'Warrior':
+                if player.character_type == 'Warrior':
                     boss.take_damage(player.use_ability())
-                elif player.character_class == 'Mage':
+                elif player.character_type == 'Mage':
                     boss.take_damage(player.use_ability())
-                elif player.character_class == 'Cleric':
+                elif player.character_type == 'Cleric':
                     player.use_ability()
             elif action == '3':
                 player.use_potion()

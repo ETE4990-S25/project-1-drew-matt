@@ -14,11 +14,11 @@ def load_game():
     with open("save_file.json", "r") as file:
         save_data = json.load(file)
     
-    if save_data["character_class"] == "Warrior":
+    if save_data["character_type"] == "Warrior":
         player = Warrior(save_data["name"])
-    elif save_data["character_class"] == "Mage":
+    elif save_data["character_type"] == "Mage":
         player = Mage(save_data["name"])
-    elif save_data["character_class"] == "Cleric":
+    elif save_data["character_type"] == "Cleric":
         player = Cleric(save_data["name"])
     else:
         print("Invalid File information")
