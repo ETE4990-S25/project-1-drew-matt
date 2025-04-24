@@ -62,7 +62,7 @@ class Warrior(Character):
 
 class Mage(Character):
     def __init__(self, name):
-        super().__init__(name, health = 100, attack = 20, character_type = "Wizard", max_health = 100)
+        super().__init__(name, health = 100, attack = 20, character_type = "Mage", max_health = 100)
         self.ability = "Fireball"
         self.add_to_inventory("Iron Staff")
         self.add_to_inventory("Health Potion")
